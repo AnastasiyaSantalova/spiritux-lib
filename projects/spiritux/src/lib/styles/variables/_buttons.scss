@@ -1,0 +1,102 @@
+@use './colors';
+
+/* === Button Icon === */
+$btn-icon-length: 1em;
+$btn-icon-gap: 10px;
+
+/* === Button Border Styles === */
+$btn-border-width: 2px;
+$btn-border-style: solid;
+
+/* === Button Outline Styles === */
+$btn-outline-width: 2px;
+$btn-outline-style: solid;
+
+/* === Button Padding Sizes === */
+$btn-paddings: (
+  small: (vertical: 5px, horizontal: 15px),
+  medium: (vertical: 10px, horizontal: 30px),
+  large: (vertical: 15px, horizontal: 45px)
+);
+
+/* === Button Variants === */
+$btn-variants: 'solid', 'outline', 'ghost', 'link';
+
+/* === Button Color Themes === */
+$btn-colors: 'primary', 'secondary', 'tertiary', 'success', 'danger';
+
+/* === Button Variant Colors === */
+$btn-styles: (
+  solid: (
+    normal: (
+      bg: '--theme-#{color}',
+      color: '--theme-#{color}-contrast',
+      border: none
+    ),
+    hover: (
+      bg: '--theme-#{color}-dark',
+      color: '--theme-#{color}-contrast',
+      border: none
+    ),
+    focus: (
+      bg: '--theme-#{color}-dark',
+      color: '--theme-#{color}-contrast',
+      border: '--theme-#{color}-contrast',
+      outline: '--theme-#{color}-dark'
+    )
+  ),
+  outline: (
+    normal: (
+      bg: transparent,
+      color: '--theme-#{color}',
+      border: '--theme-#{color}'
+    ),
+    hover: (
+      bg: transparent,
+      color: '--theme-#{color}-dark',
+      border: '--theme-#{color}-dark'
+    ),
+    focus: (
+      bg: transparent,
+      color: '--theme-#{color}-dark',
+      border: '--theme-#{color}-contrast',
+      outline: '--theme-#{color}-dark'
+    )
+  ),
+  ghost: (
+    normal: (
+      bg: transparent,
+      color: '--theme-#{color}',
+      border: none
+    ),
+    hover: (
+      bg: rgba(0, 0, 0, 0.05),
+      color: '--theme-#{color}-dark',
+      border: none
+    ),
+    focus: (
+      bg: rgba(0, 0, 0, 0.05),
+      color: '--theme-#{color}-dark',
+      border: none,
+      outline: '--theme-#{color}-dark'
+    )
+  ),
+  link: (
+    normal: (
+      bg: none,
+      color: '--theme-#{color}',
+      border: none
+    ),
+    hover: (
+      bg: none,
+      color: '--theme-#{color}-dark',
+      border: none
+    ),
+    focus: (
+      bg: none,
+      color: '--theme-#{color}-dark',
+      border: none,
+      outline: '--theme-#{color}-dark'
+    )
+  )
+);

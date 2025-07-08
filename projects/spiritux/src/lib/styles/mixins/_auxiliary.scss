@@ -1,0 +1,19 @@
+/* * Auxiliary mixins for Spiritux styles.
+ * These mixins provide utility functions for data manipulation.
+ */
+
+/* === Replace String Function === */
+@function replace($string, $search, $replace: '') {
+  @if type-of($string) != 'string' {
+    @return $string;
+  }
+
+  $index: str-index($string, $search);
+
+  @if $index {
+    @return str-slice($string, 1, $index - 1)
+      + $replace
+      + replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+  @return $string;
+}

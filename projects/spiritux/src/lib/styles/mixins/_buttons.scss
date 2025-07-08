@@ -1,0 +1,84 @@
+/* * Mixins for Spiritux Button styles * */
+@use 'sass:color';
+@use '../variables/buttons';
+@use '../variables/colors';
+@use './auxiliary';
+
+/* == Button Icon Mixin == */
+@mixin icon-size($length: 10px) {
+  width: $length;
+  height: $length;
+}
+
+/* == Button Padding Size Mixin == */
+@mixin button-padding-size($size) {
+  $vertical: map-get(map-get(buttons.$btn-paddings, $size), vertical);
+  $horizontal: map-get(map-get(buttons.$btn-paddings, $size), horizontal);
+
+  padding: #{$vertical} #{$horizontal};
+
+  &:focus {
+    padding: calc(#{$vertical} - #{buttons.$btn-border-width})
+             calc(#{$horizontal} - #{buttons.$btn-border-width});
+  }
+}
+
+/* == Button Generate Variant Color Styles Mixin == */
+@mixin button-generate-variant-color-styles($variant, $color) {
+  $states: map-get(buttons.$btn-styles, $variant);
+
+  .spiritux-button--#{$variant}.spiritux-button--#{$color} {
+    $normal: map-get($states, normal);
+    $bg: auxiliary.replace(map-get($normal, bg), '#{color}', $color);
+    $border: auxiliary.replace(map-get($normal, border), '#{color}', $color);
+    $text-color: auxiliary.replace(map-get($normal, color), '#{color}', $color);
+
+    color: var(#{$text-color});
+    background-color: var(#{$bg});
+
+    @if $border != none and $border != null {
+      border: buttons.$btn-border-width buttons.$btn-border-style var(#{$border});
+    } else {
+      border: none;
+    }
+
+    &:hover {
+      $hover: map-get($states, hover);
+      $bg: auxiliary.replace(map-get($hover, bg), '#{color}', $color);
+      $border: auxiliary.replace(map-get($hover, border), '#{color}', $color);
+      $text-color: auxiliary.replace(map-get($hover, color), '#{color}', $color);
+
+      color: var(#{$text-color});
+      background-color: var(#{$bg});
+
+      @if $border != none and $border != null {
+        border: buttons.$btn-border-width buttons.$btn-border-style var(#{$border});
+      } else {
+        border: none;
+      }
+    }
+
+    &:focus {
+      $focus: map-get($states, focus);
+      $bg: auxiliary.replace(map-get($focus, bg), '#{color}', $color);
+      $border: auxiliary.replace(map-get($focus, border), '#{color}', $color);
+      $text-color: auxiliary.replace(map-get($focus, color), '#{color}', $color);
+      $outline: auxiliary.replace(map-get($focus, outline), '#{color}', $color);
+
+      color: var(#{$text-color});
+      background-color: var(#{$bg});
+
+      @if $border != none and $border != null {
+        border: buttons.$btn-border-width buttons.$btn-border-style var(#{$border});
+      } else {
+        border: none;
+      }
+
+      @if $outline != none and $outline != null {
+        outline: buttons.$btn-outline-width buttons.$btn-outline-style var(#{$outline});
+      } else {
+        outline: 0;
+      }
+    }
+  }
+}

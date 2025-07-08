@@ -1,0 +1,16 @@
+<button
+  (focus)="onFocus()"
+  (blur)="onBlur()"
+  [type]="type"
+  [ngClass]="classNames"
+  [disabled]="disabled"
+  [attr.aria-disabled]="disabled"
+  [attr.aria-label]="ariaLabel || name || ''"
+  (click)="onClick($event)"
+  (keydown.enter)="onClick($event)"
+>
+  <span *ngIf="!iconOnly && name" [ngClass]="`${prefix}__text`">{{ name }}</span>
+  <span [ngClass]="`${prefix}__icon`">
+    <ng-container *ngIf="iconComponent" [ngComponentOutlet]="iconComponent"></ng-container>
+  </span>
+</button>

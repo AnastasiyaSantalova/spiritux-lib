@@ -1,0 +1,45 @@
+/* SPIRITUX COLORS */
+$spiritux-purple: #5A1F8E;
+$spiritux-purple-dark: #4A148C;
+
+$spiritux-pink: #C6426A;
+$spiritux-pink-dark: #A62A58;
+
+$spiritux-blue: #2563EB;
+$spiritux-blue-dark: #1D4ED8;
+
+$spiritux-green: #059669;
+$spiritux-green-dark: #047857;
+
+$spiritux-red: #DC2626;
+$spiritux-red-dark: #B91C1C;
+
+$spiritux-white: #FFFFFF;
+$spiritux-transparent: transparent;
+
+:root {
+  /* === Primary === */
+  --theme-primary: #{$spiritux-purple};
+  --theme-primary-contrast: #{$spiritux-white};
+  --theme-primary-dark: #{$spiritux-purple-dark};
+
+  /* === Secondary === */
+  --theme-secondary: #{$spiritux-pink};
+  --theme-secondary-contrast: #{$spiritux-white};
+  --theme-secondary-dark: #{$spiritux-pink-dark};
+
+  /* === Tertiary === */
+  --theme-tertiary: #{$spiritux-blue};
+  --theme-tertiary-contrast: #{$spiritux-white};
+  --theme-tertiary-dark: #{$spiritux-blue-dark};
+
+  /* === Success === */
+  --theme-success: #{$spiritux-green};
+  --theme-success-contrast: #{$spiritux-white};
+  --theme-success-dark: #{$spiritux-green-dark};
+
+  /* === Danger === */
+  --theme-danger: #{$spiritux-red};
+  --theme-danger-contrast: #{$spiritux-white};
+  --theme-danger-dark: #{$spiritux-red-dark};
+}

@@ -1,59 +1,143 @@
-# SpirituxLib
+# 🌟 Spiritux UI Library
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.1.
+**Spiritux** is a customizable UI component library for **Angular**, designed to be flexible and reusable across multiple projects.\
+It uses modern **CSS Variables** and SCSS tokens to make styling and theming easy.
 
-## Development server
+---
 
-To start a local development server, run:
+## 🚀 Quick Start
 
-```bash
-ng serve
-```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### 📦 Install
 
 ```bash
-ng generate component component-name
+npm install spiritux
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+---
 
-```bash
-ng generate --help
+## ⚙️ Usage
+
+### 1️⃣ Import a component
+
+In your Angular standalone component or module, import and use it like this:
+
+```ts
+import { SpirituxButtonComponent } from 'spiritux';
+
+@Component({
+  standalone: true,
+  selector: 'app-root',
+  imports: [SpirituxButtonComponent],
+  template: `<spiritux-button name="Click me!"></spiritux-button>`,
+})
+export class AppComponent {}
 ```
 
-## Building
+---
 
-To build the project run:
+### 2️⃣ Add theme tokens
 
-```bash
-ng build
+To make sure your design tokens are available globally, add them to your main `styles.scss`:
+
+```scss
+@use 'spiritux/styles/variables/colors';
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+And don’t forget to include `styles.scss` in your `angular.json`:
 
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
+```json
+"styles": [
+  "src/styles.scss"
+]
 ```
 
-## Running end-to-end tests
+This makes sure your `:root` CSS variables are injected into the final build.
 
-For end-to-end (e2e) testing, run:
+---
 
-```bash
-ng e2e
+## 🎨 Theming
+
+**Spiritux** uses CSS custom properties for easy theme customization.\
+You can override them globally, for example:
+
+```css
+:root {
+  --theme-primary: #5A1F8E;
+  --theme-primary-contrast: #FFFFFF;
+  --theme-primary-dark: #4A148C;
+
+  --theme-secondary: #C6426A;
+  --theme-secondary-contrast: #FFFFFF;
+  --theme-secondary-dark: #A62A58;
+
+  /* Add more colors as needed */
+}
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+💡 Pro tip: You can switch themes dynamically by adding different classes to `<body>`.
 
-## Additional Resources
+---
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## 🔘 Example: Button with icon
+
+```html
+<spiritux-button
+  name="Save"
+  variant="solid"
+  color="primary"
+  [icon]="'close'"
+  iconPosition="left">
+</spiritux-button>
+```
+
+---
+
+# 🗂️ Available Inputs
+
+| Input          | Type                                               | Description                                         |
+|----------------|----------------------------------------------------|-----------------------------------------------------|
+| `name`         | `string`                                           | Button text                                         |
+| `type`         | `'button' \| 'submit' \| 'reset'`                   | Native HTML type (`button` by default)              |
+| `variant`      | `'solid' \| 'outline' \| 'ghost' \| 'link'`         | Visual style variant (`solid` by default)           |
+| `color`        | `'primary' \| 'secondary' \| 'tertiary' \| 'success' \| 'danger'` | Theme color (`primary` by default) |
+| `size`         | `'small' \| 'medium' \| 'large'`                    | Button size (`medium` by default)                   |
+| `shape`        | `'square' \| 'circle' \| 'pill'`                     | Shape of the button (`pill` by default)             |
+| `icon`         | `'none' \| 'close' \| 'arrow-right' \| 'arrow-left' \| 'angle-right' \| 'angle-left'` | Built-in icon name (`none` by default) |
+| `iconPosition` | `'left' \| 'right'`                                 | Icon position when icon and text are used (`right` by default) |
+| `iconOnly`     | `boolean`                                          | Shows only the icon, no text                        |
+| `disabled`     | `boolean`                                          | Disables the button                                 |
+| `loading`      | `boolean`                                          | Shows a loading state                               |
+| `fullWidth`    | `boolean`                                          | Makes button take full container width              |
+| `ariaLabel`    | `string`                                           | ARIA label for accessibility                        |
+
+---
+
+## 🧩 Adding Custom Icons
+
+Spiritux comes with a set of built-in SVG icons.\
+You can add your own by extending the icon map or using `ngComponentOutlet`.
+
+---
+
+## 📚 Storybook & Demos
+
+A full Storybook with examples will help you test all components in isolation.\
+(Coming soon: add a link here when you deploy it!)
+
+---
+
+## 🤍 License
+
+MIT License.\
+Use Spiritux freely in your personal and commercial projects.
+
+---
+
+## ✨ Author
+
+Created with love by **Anastasiia S**.\
+If you like this library, star the repo ⭐ and feel free to contribute!
+
+---
+
+**Happy coding!** 🚀
